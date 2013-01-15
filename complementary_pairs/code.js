@@ -4,24 +4,22 @@ module.exports = {
 
         var P, Q, len, cnt, v1, v2;
 
+        if (0 !== K * 0) {
+            throw new Error('Expecting K to be a number: ' + K);
+        }
+
+        if (!(A instanceof Array)) {
+            throw new Error('Expecting A to be an array: ' + A);
+        }
+
         len = A.length;
         cnt = 0;
 
         for (P = len; P--;) {
-            // P = A[P];
-
             for (Q = len; Q--;) {
-                // Q = A[Q];
-                if (P === Q) { continue; }
-
-                v1 = A[P];
-                v2 = A[Q];
-process.stdout.write([v1, '+', v2, '=', v1 + v2].join(' '));
-                if (v1 + v2 === K) {
+                if (A[P] + A[Q] === K) {
                     cnt++;
-process.stdout.write(' - counted');
                 }
-process.stdout.write('\n');
             }
         }
 

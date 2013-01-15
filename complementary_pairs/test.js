@@ -15,4 +15,21 @@ describe('complementary_pairs() test suite', function () {
             code.complementary_pairs(K, A).should.equal(7);
         });
     });
+
+    // goal - make sure the parameters are of the right types
+    describe('- test invalid K parameter', function () {
+        it('should throw an exception', function () {
+            (function () {
+                code.complementary_pairs();
+            }).should.throw(Error);
+        });
+    });
+
+    describe('- test invalid A parameter', function () {
+        it('should throw an exception', function () {
+            (function () {
+                code.complementary_pairs(1);
+            }).should.throw(Error);
+        });
+    });
 });
