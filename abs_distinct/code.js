@@ -2,7 +2,10 @@ module.exports = {
     absDistinct : function absDistinct(A) {
         'use strict';
         
-        var hash = {};
+        var hash, count;
+
+        hash  = {};
+        count = 0;
 
         if (!(A instanceof Array)) {
             throw new Error('Expecting an array for parameter A: ' + A);
@@ -12,10 +15,11 @@ module.exports = {
             value = Math.abs(value);
 
             if (undefined === hash[value] && 0 === (value * 0)) {
-                hash[value] = 1;
+                hash[value] = true;
+                count++;
             }
         });
 
-        return Object.keys(hash).length;
+        return count;
     }
 };
